@@ -36,3 +36,7 @@ Use the email `jon@jon.com` with any password
 - more testing of UI components
 - use library for form rendering
 - minor refactor i.e. constants, break out larger components
+
+## Issue
+
+- when running on GitHub pages the routing has some minor issues due to the extra base path. Works fine locally so considered out of scope.
