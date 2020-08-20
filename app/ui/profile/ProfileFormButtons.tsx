@@ -23,7 +23,7 @@ const ProfileFormButtons = ({
   return (
     readOnly ?
       <>
-        <Button mr={2} type="submit" variant="primary"
+        <Button id="button-edit" mr={2} type="submit" variant="primary"
           onClick={() => setReadOnly(false)}
           >
           Edit

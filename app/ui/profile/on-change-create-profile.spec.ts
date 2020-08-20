@@ -1,5 +1,5 @@
 import React from 'react';
-import onChangeCreateProfile from './on-change-create-profile';
+import { onChangeCreateProfile } from './on-change-create-profile';
 import { getProfile } from '../../service/profile/profile';
 
 const testProfile = getProfile("jon@jon.com");

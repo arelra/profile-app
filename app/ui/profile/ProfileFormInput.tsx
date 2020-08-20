@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box } from "rebass"
+import { Box, Flex } from "rebass"
 import { Label, Input } from "@rebass/forms";
 
-import onChangeCreateProfile from './on-change-create-profile';
+import { onChangeValidate, onChangeCreateProfile } from './on-change-create-profile';
 
 /**
  * Split on "_" and capitalise the first letters and rejoin
@@ -17,6 +17,8 @@ interface Props {
   readOnly: boolean,
   localProfile: Profile,
   setLocalProfile: (profile: Profile) => void,
+  errorMsgs: Map<string, string>,
+  setErrorMsgs: (msgs: Map<string, string>) => void,
 };
 
 const ProfileFormInput = ({
@@ -24,11 +26,19 @@ const ProfileFormInput = ({
   value,
   readOnly,
   localProfile,
-  setLocalProfile}: Props) =>
+  setLocalProfile,
+  errorMsgs,
+  setErrorMsgs,
+}: Props) =>
     <Box width={3/4} px={2} my={2}>
-      <Label mb={2} htmlFor={name}>
-        {formatName(name)}
-      </Label>
+      <Flex justifyContent="flex-start">
+        <Label mb={2} mr={2} htmlFor={name} width="auto">
+          {formatName(name)}
+        </Label>
+        <Label mb={2} htmlFor={name} width="auto" style={{color: "red"}}>
+          {errorMsgs.get(name)}
+        </Label>
+      </Flex>
       <Input
         type="text"
         id={name}
@@ -36,7 +46,10 @@ const ProfileFormInput = ({
         readOnly={readOnly}
         style={{ backgroundColor: readOnly ? "#EEE" : "white" }}
         value={value}
-        onChange={(e) => setLocalProfile(onChangeCreateProfile(e, localProfile))}
+        onChange={(e) => {
+          setErrorMsgs(onChangeValidate(e));
+          setLocalProfile(onChangeCreateProfile(e, localProfile));
+        }}
       />
     </Box>
 

@@ -5,10 +5,12 @@ interface Props {
   readOnly: boolean,
   localProfile: Profile,
   setLocalProfile: (profile: Profile) => void,
+  errorMsgs: Map<string,string>,
+  setErrorMsgs: (msg: Map<string, string>) => void,
 };
 
 const ProfileFormAddress =
-  ({ readOnly, localProfile, setLocalProfile }: Props) =>
+  ({ readOnly, localProfile, setLocalProfile, errorMsgs, setErrorMsgs }: Props) =>
   <>
     <ProfileFormInputMain
       name="street"
@@ -16,6 +18,8 @@ const ProfileFormAddress =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="town"
@@ -23,6 +27,8 @@ const ProfileFormAddress =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="county"
@@ -30,6 +36,8 @@ const ProfileFormAddress =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="postcode"
@@ -37,6 +45,8 @@ const ProfileFormAddress =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
   </>
 

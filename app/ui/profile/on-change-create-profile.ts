@@ -87,4 +87,30 @@ const onChangeCreateProfile = (event: InputEvent, profile: Profile): Profile => 
     return profile;
 };
 
-export default onChangeCreateProfile;
+const onChangeValidate = (event: InputEvent): Map<string, string> => {
+  const inputName = event.target.name;
+  const inputValue = event.target.value;
+  const errorMsgs = new Map();
+  switch (inputName) {
+    case "first_name": {
+      if (inputValue.length === 0) {
+        errorMsgs.set("first_name", "too short");
+      }
+      break;
+    }
+    case "email": {
+      if (!inputValue.includes("@")) {
+        errorMsgs.set("email", "not a valid email");
+      }
+      break;
+    }
+    default:
+      return errorMsgs;
+  }
+  return errorMsgs;
+}
+
+export {
+  onChangeValidate,
+  onChangeCreateProfile,
+}

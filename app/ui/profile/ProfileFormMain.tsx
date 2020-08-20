@@ -5,10 +5,12 @@ interface Props {
   readOnly: boolean,
   localProfile: Profile,
   setLocalProfile: (profile: Profile) => void,
+  errorMsgs: Map<string, string>,
+  setErrorMsgs: (msg: Map<string, string>) => void,
 };
 
 const ProfileFormMain =
-  ({ readOnly, localProfile, setLocalProfile }: Props) =>
+  ({ readOnly, localProfile, setLocalProfile, errorMsgs, setErrorMsgs }: Props) =>
   <>
     <ProfileFormInputMain
       name="first_name"
@@ -16,6 +18,8 @@ const ProfileFormMain =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="other_names"
@@ -23,6 +27,8 @@ const ProfileFormMain =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="email"
@@ -30,6 +36,8 @@ const ProfileFormMain =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="mobile"
@@ -37,6 +45,8 @@ const ProfileFormMain =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
     <ProfileFormInputMain
       name="company"
@@ -44,6 +54,8 @@ const ProfileFormMain =
       readOnly={readOnly}
       localProfile={localProfile}
       setLocalProfile={setLocalProfile}
+      errorMsgs={errorMsgs}
+      setErrorMsgs={setErrorMsgs}
     />
   </>
 

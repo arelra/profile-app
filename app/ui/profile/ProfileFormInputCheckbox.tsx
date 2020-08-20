@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from "rebass"
 import { Label, Checkbox } from "@rebass/forms";
 
-import onChangeCreateProfile from './on-change-create-profile';
+import { onChangeCreateProfile } from './on-change-create-profile';
 
 interface Props {
   name: string,

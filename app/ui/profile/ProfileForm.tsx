@@ -21,9 +21,11 @@ interface Props {
   setProfile: (profile: Profile) => void,
 };
 
+
 const ProfileForm = ({ profile, setProfile }: Props) => {
   const [localProfile, setLocalProfile] = useState(profile);
   const [readOnly, setReadOnly] = useState(true);
+  const [errorMsgs, setErrorMsgs] = useState(new Map<string,string>());
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
       <Flex mb={2} flexDirection="column">
@@ -31,11 +33,15 @@ const ProfileForm = ({ profile, setProfile }: Props) => {
           readOnly={readOnly}
           localProfile={localProfile}
           setLocalProfile={setLocalProfile}
+          errorMsgs={errorMsgs}
+          setErrorMsgs={setErrorMsgs}
         />
         <ProfileFormAddress
           readOnly={readOnly}
           localProfile={localProfile}
           setLocalProfile={setLocalProfile}
+          errorMsgs={errorMsgs}
+          setErrorMsgs={setErrorMsgs}
         />
       </Flex>
       <Flex mb={2}>
